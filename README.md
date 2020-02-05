@@ -26,13 +26,31 @@ Offical Keras (TensorFlow) implementaiton. If you have any questions or need mor
 * Minimum hardware tested on for inference NVIDIA GeForce 940MX (laptop) / NVIDIA GeForce GTX 950 (desktop).
 * Training takes about 24 hours on a single NVIDIA TITAN RTX with batch size 8.
 
+## Getting Started   
+1.  Create the conda environment:
+    ```shell script
+    conda env create -f environment.yml
+    ```
+    **Note**: This environment has only been tested on Windows 10 and may not work on other operating systems.
+2.  Activate the conda environment:
+    ```shell script
+    conda activate DenseDepth
+    ```
+
+### Generating depth maps
+1.  Run the script `demo.py`:
+    ```shell script
+    python demo.py -i <RGB image file or folder> -o <depth map output file or folder>
+    ```
+    See `python demo.py -h` for more details.
+
 ## Pre-trained Models
 * [NYU Depth V2](https://s3-eu-west-1.amazonaws.com/densedepth/nyu.h5) (165 MB)
 * [KITTI](https://s3-eu-west-1.amazonaws.com/densedepth/kitti.h5) (165 MB)
-
+    
 ## Demos
 * After downloading the pre-trained model (nyu.h5), run `python test.py`. You should see a montage of images with their estimated depth maps.
-* **[Update]** A Qt demo showing 3D point clouds from the webcam or an image. Simply run `python demo.py`. It requires the packages `PyGLM PySide2 pyopengl`. 
+* **[Update]** A Qt demo showing 3D point clouds from the webcam or an image. Simply run `python viz.py`. It requires the packages `PyGLM PySide2 pyopengl`. 
 <p align="center">
   <img style="max-width:500px" src="https://s3-eu-west-1.amazonaws.com/densedepth/densedepth_results_04.jpg" alt="RGBD Demo">
 </p>
